@@ -3,10 +3,18 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/User');
+const ProductRoutes=require('./routes/ProductRoutes');
+
+
 
 const server = express();
 server.use(bodyParser.json());
 server.use(cors());
+server.use('/Product',ProductRoutes)
+
+
+
+
 
 mongoose.connect('mongodb+srv://prashant:Prashant%40123@leadsoft.jbrppb4.mongodb.net/')
 .then(() => console.log('Database Connected'))
